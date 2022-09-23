@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Context } from '../Context/Context';
 import {Button} from '@mui/material';
 import { NavLink } from 'react-router-dom';
+import Model from '../Utils/Model';
 function Home() {
     return (
         <div className='container'>
@@ -12,6 +13,7 @@ function Home() {
                         <NavLink to='/create-cv' className='text-decoration-none text-light '><Button variant='contained' >create My CV</Button></NavLink>
                 </div>
             </div>
+            {/* <Model/> */}
         </div>
     )
 }
