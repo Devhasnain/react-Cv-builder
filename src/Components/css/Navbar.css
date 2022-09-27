@@ -1,4 +1,15 @@
 .main-div{
     background-color: #fcfcfc;
-    /* background:#eae8e8 */
+    /* background:#f0efef */
+}
+.small-screen-items{
+    display: none;
+}
+@media only screen and (max-width: 800px) {
+    .large-screen-items{
+        display: none;
+    }
+    .small-screen-items{
+        display: block;    
+  }
 }

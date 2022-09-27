@@ -1,0 +1,29 @@
+.ssmenu-main-div{
+    display: none;
+    position: absolute;
+    z-index: 1;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    background:#e6e3e3;
+    overflow: hidden;
+}
+@media only screen and (max-width: 800px) {
+    .ssmenu-main-div{
+        display: block;    
+  }
+}
+.navlinks-smenu ul{
+    list-style: none;
+}
+.navlinks-smenu ul li{
+    width: 75%;
+    padding: 15px;
+    border-bottom: solid gray 2px;
+    justify-content: center;
+}
+.navlinks-smenu ul li a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}

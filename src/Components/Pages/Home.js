@@ -1,11 +1,10 @@
-import React, { useContext } from 'react';
-import { Context } from '../Context/Context';
+import React from 'react';
 import {Button} from '@mui/material';
 import { NavLink } from 'react-router-dom';
-import Model from '../Utils/Model';
+import { motion } from 'framer-motion';
 function Home() {
     return (
-        <div className='container'>
+        <motion.div className='container' initial={{x:"-100vw"}} animate={{x:"0vw",transition:{type:"spring",ease:"easeIn",duration:"0.5"}}} exit={{x:"-100vw",transition:{type:"spring",ease:"easeIn",duration:"0.5"}}}>
             <div className='row'>
                 <div className='col-lg-8 my-5 text-center m-auto'>
                         <h1 className='fs-1'>CV builder</h1>
@@ -13,8 +12,7 @@ function Home() {
                         <NavLink to='/create-cv' className='text-decoration-none text-light '><Button variant='contained' >create My CV</Button></NavLink>
                 </div>
             </div>
-            {/* <Model/> */}
-        </div>
+        </motion.div>
     )
 }
 

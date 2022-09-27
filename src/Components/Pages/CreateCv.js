@@ -1,29 +1,27 @@
-import { Button } from '@mui/material';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import '../css/Preview.css';
 import Inputs from '../Utils/Inputs';
+import {NavLink} from 'react-router-dom';
+import { motion } from 'framer-motion';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+
 function CreateCv() {
     return (
-        <div className='container my-5'>
-            <div className='row'>
-                <div className='d-flex justify-content-between'>
-                    <small className='text-muted'>Lets start creating your cv,Fill up your details!</small>
-                    <NavLink to='/' className='text-decoration-none text-dark'>
-                    <Button variant='contained'>Preview</Button>
-                    </NavLink>
+        <motion.div initial={{x:"-100vw"}} animate={{x:"0vw",transition:{type:"spring",ease:"easeIn",duration:"0.5"}}} exit={{x:"-100vw",transition:{type:"spring",ease:"easeIn",duration:"0.5"}}} className='container-lg container-md container-sm container my-5'>
+            <div className='row align-items-center'>
+                <div className='col'>
+                    <h5 className='text-muted'>Lets start creating your cv,Fill up your details!</h5>
                 </div>
+                <div className='col-3 text-center' >
+                    <NavLink to='/cv-preview' className='text-dark'><RemoveRedEyeIcon fontSize='large'/></NavLink>
+                    </div>
+                <hr /><br />
             </div>
             <div className='row'>
-                <div className='col'>
-                    <Inputs/>
-                </div>
-                <div className='col'>
-
-                </div>
+                <Inputs />
             </div>
-        </div>
-    )
-}
+        </motion.div>
+    );
+};
 
 export default CreateCv;
