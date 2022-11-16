@@ -35,14 +35,14 @@ export const BasicModal = () => {
     setInterestsArr,
     setSummaryobj
   } = useContext(Context);
-  const [profileData, setProfileData] = useState({ name: '', work: '', email: '', number: '',address:'' });
+  const [profileData, setProfileData] = useState({ name: '', work: '', email: '', number: '', address: '' });
   const [educationData, setEducationData] = useState({ degree: '', institute: '', startDate: '', endDate: '', city: '' });
   const [workExperience, setWorkExperience] = useState({ position: '', company: '', startDate: '', endDate: '', country: '', city: '', url: '' });
   const [skill, setSkill] = useState('');
   const [projects, setProjects] = useState({ title: '', link: '' });
   const [language, setLanguage] = useState('');
   const [interest, setInterest] = useState('');
-  const [summary,setSummary]=useState('');
+  const [summary, setSummary] = useState('');
   const handleClose = () => setOpen({ value: false });
   //Present checkbox Handler
   const HandlePresent = (e) => {
@@ -89,7 +89,7 @@ export const BasicModal = () => {
   const interestOnChange = (e) => {
     setInterest(e.target.value);
   }
-  const summaryOnChange=(e)=>{
+  const summaryOnChange = (e) => {
     setSummary(e.target.value)
   }
   //Form Submit Functions
@@ -131,7 +131,7 @@ export const BasicModal = () => {
     setInterestsArr((e) => [...e, interest]);
     setInterest('');
   };
-  const handleSummary=(e)=>{
+  const handleSummary = (e) => {
     e.preventDefault();
     setSummaryobj(summary);
     setSummary('');
@@ -352,22 +352,55 @@ export const BasicModal = () => {
             </form>
           </div>
         );
-     case 'Summary':
-      return (
-        <div className='row'>
-          <h2>{type}</h2>
-          <hr/>
-          <form onSubmit={handleSummary}>
-            <div className='col'>
-            <textarea rows={8} maxLength={200} value={summary} onChange={summaryOnChange} placeholder='Summary' className='form-control' required minLength={60}/><br/>
-            <div className='text-end'>
-            <Button variant='contained' type='submit'>Add</Button>
-            </div>
-            </div>
-          </form>
-        </div>
-      );
-        default:
+      case 'Summary':
+        return (
+          <div className='row'>
+            <h2>{type}</h2>
+            <hr />
+            <form onSubmit={handleSummary}>
+              <div className='col'>
+                <textarea rows={8} maxLength={200} value={summary} onChange={summaryOnChange} placeholder='Summary' className='form-control' required minLength={60} /><br />
+                <div className='text-end'>
+                  <Button variant='contained' type='submit'>Add</Button>
+                </div>
+              </div>
+            </form>
+          </div>
+        );
+      case 'Others':
+        return (
+          <div className='row'>
+            <h2>{type}</h2>
+            <hr />
+            <form onSubmit={handleSummary}>
+              <div className='col'>
+                <Input placeholder='Title' />
+                <textarea placeholder='Description' rows={4} className='form-control' />
+                <div className='d-flex justify-content-between'>
+                  <div >
+                    <small>From</small><br />
+                    <Input name='startDate' value={workExperience.startDate} onChange={workExperienceOnChange} type='date' required />
+                  </div>
+                  <div >
+                    <small>To</small>
+                    <br />
+                    <div>
+                      <Input name='endDate' value={workExperience.endDate} onChange={workExperienceOnChange} type='date' />
+                      <div className='d-flex justify-content-start p-0'>
+                        <Input type='checkbox' onClick={HandlePresentWorkExperience} className='mx-1' />
+                        <small>present</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className='text-end'>
+                  <Button variant='contained' type='submit'>Add</Button>
+                </div>
+              </div>
+            </form>
+          </div>
+        );
+      default:
 
         break;
     }

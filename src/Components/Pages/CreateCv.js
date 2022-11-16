@@ -20,6 +20,9 @@ function CreateCv() {
             <div className='row'>
                 <Inputs />
             </div>
+            <div className=''>
+                <button className='btn btn-primary'>Back</button>
+            </div>
         </motion.div>
     );
 };

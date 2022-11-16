@@ -7,7 +7,7 @@ import { Context } from '../Context/Context';
 
 function Inputs() {
     const { open, setOpen } = useContext(Context);
-    let titles = ['Profile', 'Work Experience', 'Education', 'Skills', 'Projects', 'Languages', 'Interests', 'Summary']
+    let titles = ['Profile', 'Work Experience', 'Education', 'Skills', 'Projects', 'Languages', 'Interests', 'Summary','Others']
     return (
         <>
             {titles.map((item, index) => {
